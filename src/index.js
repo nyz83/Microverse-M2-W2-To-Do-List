@@ -36,7 +36,7 @@ todoForm.addEventListener('submit', (e) => {
   const todoDesc = todoInput.value;
   if (!todoDesc) return;
   const newTodo = {
-    id: String(todos.length),
+    id: String(todos.length + 1),
     desc: todoDesc,
     completed: false,
   };
@@ -53,7 +53,7 @@ todoList.addEventListener('click', (e) => {
   parent.remove();
   todos = todos.filter((todo) => todo.id !== id);
   todos.forEach((todo, index) => {
-    todo.id = index.toString();
+    todo.id = (index + 1).toString();
   });
   const sortedTodos = todos.sort((a, b) => a.id - b.id);
   todoList.innerHTML = '';
