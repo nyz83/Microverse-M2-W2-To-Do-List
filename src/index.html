@@ -31,21 +31,21 @@
             />
           </form>
         </div>
-        <ul id="todoList">
-
+        <ul id="todoList" class="flex flex-col">
+         
         </ul>
-        <button class="p-2 text-center opacity-70 capitalize bg-gray-200 w-full">clear all completed</button>
+        <button id="clearCompleted" class="p-2 text-center opacity-70 capitalize bg-gray-200 w-full order-1">clear all completed</button>
       </div>
     </main>
     <template id="todoTemplate">
-      <li id="todoItem" class="border-b-2 p-2">
+      <li id="todoItem" class="border-b-2 p-2">   
         <div class="flex justify-between">
           <div>
-            <input type="checkbox" data-list-item-checkbox class="peer"/>
-            <input class="text-lg ml-2 peer-checked:line-through peer-checked:opacity-50" data-list-item-text></input>
+            <input type="checkbox" id="todoCheckbox" class="peer"/>
+            <input id="todoText" class="text-lg ml-2 peer-checked:line-through peer-checked:opacity-50" ></input>
           </div>
-          <button type="button" data-button-delete>
-            <svg data-button-delete width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+          <button type="button" id="todoDelete" >
+            <svg id="todoDelete" width="24px" height="24px" viewBox="0 0 24 24" fill="none">
               <path d="M10 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M14 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M4 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
