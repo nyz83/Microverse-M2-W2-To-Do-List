@@ -1,5 +1,10 @@
 import './style.css';
 import {
+  createTodo,
+  removeTodo,
+  renderTodo,
+} from './todos.js';
+import {
   sortArr,
   loadFromStorage,
   saveToStorage,
@@ -7,43 +12,22 @@ import {
 } from './utils.js';
 
 const todoList = document.querySelector('#todoList');
-const clearCompletedBtn = document.querySelector('#clearCompleted');
 const todoForm = document.querySelector('#todoForm');
 const todoInput = document.querySelector('#todoInput');
-const todoTemplate = document.querySelector('#todoTemplate');
+const clearCompletedBtn = document.querySelector('#clearCompleted');
 const STORAGE_KEY = 'todos';
-
-function renderTodo(todo) {
-  const { id, desc, completed } = todo;
-  const todoTemplateClone = todoTemplate.content.cloneNode(true);
-  const todoItem = todoTemplateClone.querySelector('#todoItem');
-  const todoCheckbox = todoTemplateClone.querySelector('#todoCheckbox');
-  const todoText = todoTemplateClone.querySelector('#todoText');
-  todoItem.dataset.id = id;
-  todoText.value = desc;
-  todoText.disabled = todo.completed;
-  todoCheckbox.checked = completed;
-  todoList.appendChild(todoTemplateClone);
-}
 
 window.addEventListener('load', () => {
   const todos = loadFromStorage(STORAGE_KEY);
-  todos.forEach((todo) => renderTodo(todo));
+  todos.forEach((todo) => renderTodo(todo, todoList));
 });
 
 todoForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const todos = loadFromStorage(STORAGE_KEY);
-  const todoDesc = todoInput.value;
-  if (!todoDesc) return;
-  const newTodo = {
-    id: String(todos.length + 1),
-    desc: todoDesc,
-    completed: false,
-  };
-  const newTodos = [...todos, newTodo];
-  saveToStorage(STORAGE_KEY, newTodos);
-  renderTodo(newTodo);
+  const newTodo = createTodo(todos.length + 1, todoInput.value, false);
+  saveToStorage(STORAGE_KEY, [...todos, newTodo]);
+  renderTodo(newTodo, todoList);
   todoInput.value = '';
 });
 
@@ -53,10 +37,10 @@ todoList.addEventListener('click', (e) => {
   const parent = e.target.closest('#todoItem');
   const { id } = parent.dataset;
   parent.remove();
-  const filteredTodos = todos.filter((todo) => todo.id !== id);
-  const sortedTodos = sortArr(incrementProp(filteredTodos, 'id'), 'id');
+  const deletedTodos = removeTodo(todos, 'id', id);
+  const sortedTodos = sortArr(incrementProp(deletedTodos, 'id'), 'id');
   todoList.innerHTML = '';
-  sortedTodos.forEach((todo) => renderTodo(todo));
+  sortedTodos.forEach((todo) => renderTodo(todo, todoList));
   saveToStorage(STORAGE_KEY, sortedTodos);
 });
 
@@ -86,9 +70,9 @@ todoList.addEventListener('change', (e) => {
 
 clearCompletedBtn.addEventListener('click', () => {
   const todos = loadFromStorage(STORAGE_KEY);
-  const completedTodos = todos.filter((todo) => todo.completed !== true);
-  const sortedTodos = sortArr(incrementProp(completedTodos, 'id'), 'id');
+  const inCompletedTodos = removeTodo(todos, 'completed', true);
+  const sortedTodos = sortArr(incrementProp(inCompletedTodos, 'id'), 'id');
   todoList.innerHTML = '';
-  sortedTodos.forEach((todo) => renderTodo(todo));
+  sortedTodos.forEach((todo) => renderTodo(todo, todoList));
   saveToStorage(STORAGE_KEY, sortedTodos);
 });
