@@ -1,8 +1,8 @@
 import './style.css';
 import {
-  createTodo,
-  removeTodo,
   renderTodo,
+  removeTodo,
+  createTodo,
 } from './todos.js';
 import {
   sortArr,
