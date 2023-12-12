@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1702276160405" clover="3.2.0">
+  <project timestamp="1702276160406" name="All files">
+    <metrics statements="46" coveredstatements="45" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="9" elements="58" coveredelements="56" complexity="0" loc="46" ncloc="46" packages="1" files="2" classes="2"/>
+    <file name="todos.js" path="D:\Dev\1-microverse\Microverse-M2-W2-To-Do-List\src\todos.js">
+      <metrics statements="40" coveredstatements="39" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="43" count="1" type="stmt"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="52" count="1" type="stmt"/>
+      <line num="53" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="57" count="1" type="stmt"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="63" count="0" type="stmt"/>
+      <line num="71" count="3" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+    </file>
+    <file name="utils.js" path="D:\Dev\1-microverse\Microverse-M2-W2-To-Do-List\src\utils.js">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>
